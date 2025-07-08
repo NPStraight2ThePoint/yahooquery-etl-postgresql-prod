@@ -67,17 +67,17 @@ cd yahooquery-etl-postgresql-prod
 ### 3️⃣ Set Up Environment
 
 Create your .env file using the provided template:
-
+```bash
 cp .env.example .env
-
+```
 Edit .env with your local PostgreSQL credentials:
-
+```bash
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=your_username
 DB_PASSWORD=your_password
 DB_NAME=yahooquery_db
-
+```
 ### 🧱 Initial Setup (One-time)
 
 Create the PostgreSQL database:
@@ -88,62 +88,57 @@ python setup/create_db.py
 ```
 
 Create tables and schema:
-
+```bash
 python setup/init_schema_tables.py
+```
 Create necessary output folders:
 
-bash
-Copy
-Edit
+```bash
 python setup/create_dirs.py
+```
 
 📈 Run the ETL Pipeline
+
 You can either:
 
 ✅ 1. Use the Global Orchestrator (recommended):
-bash
-Copy
-Edit
+```bash
 python global_orchestrator.py
+```
+
 Or:
 
 🧩 2. Run each module manually (pricing, financials, fundamentals):
-bash
-Copy
-Edit
+
+```bash
 python etl/_1_pricing/run_pricing_pipeline.py
 python etl/_2_financial_statements/run_financials_pipeline.py
 python etl/_3_fundamentals/run_fundamentals_pipeline.py
+```
+
 📦 Archive Old Data (Optional)
 After a run, clean up and archive raw data:
 
-bash
-Copy
-Edit
+```bash
 python archive_dir.py
+```
+
 📊 What's Included
+
 📁 Historical pricing
-
 📁 Option chains
-
 📁 Technical insights
-
 📁 Financial statements (IS, BS, CF)
-
 📁 Company fundamentals
-
 📁 Static profiles, summaries, and more
 
 🛠️ Custom Universes
+
 To use a different set of tickers:
 
-Replace sp500.csv in /tickers/ or
+-Replace sp500.csv in /tickers/ or
+-Modify the get_sp500_tickers.py logic
 
-Modify the get_sp500_tickers.py logic
-
-🧪 Status
-✅ Production-ready
-✅ Tested for 10–500 tickers
 📌 Future: Add tests, GitHub Actions, more data groups
 
 📬 Contact / Feedback
