@@ -17,16 +17,29 @@
 
 ## 📁 Folder Structure
 
-📦 yahooquery-etl-postgresql-prod
-├── etl/ # ETL scripts for each data segment
-├── setup/ # DB creation, schema, folder setup
-├── output/ # Fetched raw data
+yahooquery-etl-postgresql-prod/
 ├── archive/ # Archived CSVs for version tracking
-├── sql_db_schema/ # CSV schema definition files
-├── utils/ # Helper functions + shared paths
-├── global_orchestrator.py # Runs all segments in order
-├── get_sp500_tickers.py # Auto-download S&P 500 tickers
+│ └── data/
 ├── archive_dir.py # Archive logic
+├── etl/ # ETL scripts for each data segment
+│ ├── _1_pricing/
+│ ├── _2_financial_statements/
+│ ├── _3_fundamentals/
+│ └── merged/ # Merged outputs
+├── get_sp500_tickers.py # Auto-download S&P 500 tickers
+├── global_orchestrator.py # Runs all segments in order
+├── output/ # Fetched raw data
+│ ├── _1_pricing/
+│ ├── _2_financials/
+│ └── _3_fundamentals/
+├── requirements.txt
+├── setup/ # DB creation, schema, folder setup
+│ ├── create_db.py
+│ ├── init_schema_tables.py
+│ └── create_dirs.py
+├── sql_db_schema/ # CSV schema definition files
+│ └── sql_schema.csv
+├── utils/ # Helper functions + shared paths
 ├── .env.example # Template for local credentials
 ├── .gitignore # Excludes sensitive files
 └── README.md
@@ -47,7 +60,9 @@
 ```bash
 git clone https://github.com/NPStraight2ThePoint/yahooquery-etl-postgresql-prod.git
 cd yahooquery-etl-postgresql-prod
+```
 
+### 3️⃣ Set Up Environment
 
 Create your .env file using the provided template:
 
@@ -61,18 +76,17 @@ DB_USER=your_username
 DB_PASSWORD=your_password
 DB_NAME=yahooquery_db
 
-🧱 Initial Setup (One-time)
+### 🧱 Initial Setup (One-time)
+
 Create the PostgreSQL database:
 
-bash
-Copy
-Edit
+```bash
+
 python setup/create_db.py
+```
+
 Create tables and schema:
 
-bash
-Copy
-Edit
 python setup/init_schema_tables.py
 Create necessary output folders:
 
