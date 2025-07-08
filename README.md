@@ -100,9 +100,9 @@ Or:
 2. Run each module manually (pricing, financials, fundamentals):
 
 ```bash
-python etl/_1_pricing/run_pricing_pipeline.py
-python etl/_2_financial_statements/run_financials_pipeline.py
-python etl/_3_fundamentals/run_fundamentals_pipeline.py
+python etl/_1_pricing/pricing_orchestrator.py
+python etl/_2_financial_statements/financials_statements_orchestrator.py
+python etl/_3_fundamentals/fundamentals_orchestrator.py
 ```
 
 📦 Archive Old Data (Optional)
