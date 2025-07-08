@@ -1,0 +1,35 @@
+# created by virtualenv automatically
+# 🛑 Sensitive or user-specific files
+.env
+*.env
+.env.*
+
+# 🔄 Python junk
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+pyvenv.cfg
+
+# 🧪 Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# 📦 System & IDE files
+.DS_Store
+*.log
+*.sqlite3
+.idea/
+*.iml
+.vscode/
+
+# 📂 Output folders
+output/
+archive/
+
+# 🪣 If you want to ignore merged/static/generated files:
+etl/merged/
+etl/static/
+
