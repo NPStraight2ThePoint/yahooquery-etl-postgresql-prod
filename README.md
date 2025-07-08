@@ -79,12 +79,7 @@ DB_NAME=yahooquery_db
 ```
 
 ### 🧱 Initial Setup (One-time)
-```text
-Create:
-1.PostgreSQL database 
-2.tables and schema
-3.necessary output folders
-```
+
 ```bash
 python setup/create_db.py
 python setup/init_schema_tables.py
