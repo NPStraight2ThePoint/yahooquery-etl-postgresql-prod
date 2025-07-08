@@ -91,7 +91,7 @@ python setup/init_schema_tables.py
 python setup/create_dirs.py
 ```
 
-📈 Run the ETL Pipeline
+### 📈 Run the ETL Pipeline
 
 You can either:
 
@@ -126,7 +126,8 @@ python archive_dir.py
 📁 Company fundamentals
 📁 Static profiles, summaries, and more
 ```
-🛠️ Custom Universes
+
+### 🛠️ Custom Universes
 
 To use a different set of tickers:
 
@@ -134,9 +135,16 @@ To use a different set of tickers:
 
 📌 Future: Add tests, GitHub Actions, more data groups
 
-📬 Contact / Feedback
-Built by Nicholas Papadimitris
-Raise an issue or open a PR to collaborate.
+### 🆔 Project Info
+
+**Author:** *Nicholas Papadimitris *  
+**Created on:** *09/07/2025 6:00 AM* (UTC)   
+**Project ID:** `YF_YQ_ETL_09_Jul2025`
+**GitHub**: [My GitHub](https://github.com/NPStraight2ThePoint)
+
+📧 **Email:** nicholas.papadimitris@gmail.com  
+💼 **LinkedIn:** [Nicholas Papadimitris](https://www.linkedin.com/in/nicholas-papadimitris/)
+---
 
 📄 License
 MIT License — free to use and modify.
