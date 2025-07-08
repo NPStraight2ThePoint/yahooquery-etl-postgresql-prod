@@ -161,14 +161,19 @@ You have two options:
 ### 📄 License
 MIT License — free to use and modify.
 
-🧾 Attribution Requirement
-If you distribute or share this repository or its content publicly, you must:
-```
+### 🙏 Attribution Requirement
+If you distribute or share this repository or its contents publicly, you must:
+
 ✅ Provide appropriate credit
-✅ Include a link to the original repository:[Repo](https://github.com/NPStraight2ThePoint/yahooquery-etl-postgresql-prod)  
+
+✅ Include a link to the original repository:
+https://github.com/NPStraight2ThePoint/yahooquery-etl-postgresql-prod
+
 ✅ Indicate if changes were made
-```
-You may do so in any reasonable manner, but not in any way that suggests the original author or repository endorses you or your use.
+
+You may do so in any reasonable manner, but not in any way that suggests the original author or this repository endorses you or your use.
+
+
 
 
 
