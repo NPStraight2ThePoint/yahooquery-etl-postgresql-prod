@@ -46,7 +46,6 @@ yahooquery-etl-postgresql-prod/
 └── README.md
 ```
 
-
 ---
 
 ## ⚙️ Setup Instructions
@@ -78,37 +77,31 @@ DB_USER=your_username
 DB_PASSWORD=your_password
 DB_NAME=yahooquery_db
 ```
+
 ### 🧱 Initial Setup (One-time)
 
-Create the PostgreSQL database:
+Create the PostgreSQL database, tables and schema , necessary output folders:
 
 ```bash
-
 python setup/create_db.py
-```
-
-Create tables and schema:
-```bash
 python setup/init_schema_tables.py
-```
-Create necessary output folders:
-
-```bash
 python setup/create_dirs.py
+```
+
 ```
 
 📈 Run the ETL Pipeline
 
 You can either:
 
-✅ 1. Use the Global Orchestrator (recommended):
+1. Use the Global Orchestrator (recommended):
 ```bash
 python global_orchestrator.py
 ```
 
 Or:
 
-🧩 2. Run each module manually (pricing, financials, fundamentals):
+2. Run each module manually (pricing, financials, fundamentals):
 
 ```bash
 python etl/_1_pricing/run_pricing_pipeline.py
@@ -124,20 +117,19 @@ python archive_dir.py
 ```
 
 📊 What's Included
-
+```bash
 📁 Historical pricing
 📁 Option chains
 📁 Technical insights
-📁 Financial statements (IS, BS, CF)
+📁 Financial statements (IS, BS, CF) / (Annual/Quarterly)
 📁 Company fundamentals
 📁 Static profiles, summaries, and more
-
+```
 🛠️ Custom Universes
 
 To use a different set of tickers:
 
--Replace sp500.csv in /tickers/ or
--Modify the get_sp500_tickers.py logic
+-Replace Tickers.csv in \output\Static Data or
 
 📌 Future: Add tests, GitHub Actions, more data groups
 
