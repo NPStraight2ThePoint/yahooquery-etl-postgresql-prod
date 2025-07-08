@@ -124,25 +124,44 @@ python archive_dir.py
 
 ### 🛠️ Custom Universes
 
-To use a different set of tickers:
+Want to analyze a different set of tickers beyond the S&P 500?
 
--Replace Tickers.csv in \output\Static Data or
+You have two options:
 
-📌 Future: Add tests, GitHub Actions, more data groups
+- 🔁 **Replace the default** `Tickers.csv` located in:  
+  `output/Static Data/Tickers.csv`
+
+- 🧩 **Customize the scraping logic** in:  
+  `get_sp500_tickers.py` — adapt it for your own universe (ASX200, ETFs, custom watchlists, etc.)
+
+---
+
+### 🧪 Project Status & Roadmap
+
+✅ Tested on 10–500 tickers  
+📌 **Upcoming Enhancements**:
+- Add automated testing
+- GitHub Actions for CI/CD
+- Additional Yahoo data modules
+
+---
 
 ### 🆔 Project Info
 
-**Author:** *Nicholas Papadimitris *  
-**Created on:** *09/07/2025 6:00 AM* (UTC)   
+**Author:** *Nicholas Papadimitris*  
+**Created On:** *09 July 2025, 06:00 AM UTC*  
 **Project ID:** `YF_YQ_ETL_09_Jul2025`
-**GitHub**: [My GitHub](https://github.com/NPStraight2ThePoint)
 
-📧 **Email:** nicholas.papadimitris@gmail.com  
-💼 **LinkedIn:** [Nicholas Papadimitris](https://www.linkedin.com/in/nicholas-papadimitris/)
+- 🐙 **GitHub:** [@NPStraight2ThePoint](https://github.com/NPStraight2ThePoint)  
+- 💼 **LinkedIn:** [Nicholas Papadimitris](https://www.linkedin.com/in/nicholas-papadimitris/)  
+- 📧 **Email:** nicholas.papadimitris@gmail.com  
+
 ---
 
-📄 License
+## 📄 License
+
 MIT License — free to use and modify.
+
 
 
 
