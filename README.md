@@ -140,6 +140,7 @@ You have two options:
 ### 🧪 Project Status & Roadmap
 
 ✅ Tested on 10–500 tickers  
+
 📌 **Upcoming Enhancements**:
 - Add automated testing
 - GitHub Actions for CI/CD
@@ -160,19 +161,33 @@ You have two options:
 ---
 
 ### 📄 License
-MIT License — free to use and modify.
+
+This project is licensed under the **MIT License** — free to use, modify, and distribute.
+
+---
 
 ### 🙏 Attribution Requirement
-If you distribute or share this repository or its contents publicly, you must:
 
-✅ Provide appropriate credit
+If you distribute or share this repository or its contents publicly, you **must**:
 
-✅ Include a link to the original repository:
-https://github.com/NPStraight2ThePoint/yahooquery-etl-postgresql-prod
+- ✅ Provide appropriate credit to the original author.
+- ✅ Include a link to the original repository:  
+  [https://github.com/NPStraight2ThePoint/yahooquery-etl-postgresql-prod](https://github.com/NPStraight2ThePoint/yahooquery-etl-postgresql-prod)
+- ✅ Clearly indicate if any changes were made.
 
-✅ Indicate if changes were made
+You may do so in any reasonable manner, **but not** in any way that suggests the original author or this repository endorses you or your use.
 
-You may do so in any reasonable manner, but not in any way that suggests the original author or this repository endorses you or your use.
+---
+
+### 📢 Third-Party Attributions
+
+This project uses and builds upon the following external sources, which should be credited as per their own licenses:
+
+- [`yahooquery`](https://github.com/dpguthrie/yahooquery): A Python API client to Yahoo Finance, used here for data extraction.
+- Data sourced from **Wikipedia** for S&P 500 constituents and related metadata.
+
+Please refer to their respective licenses and terms when redistributing or modifying those components.
+
 
 
 
