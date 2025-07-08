@@ -80,14 +80,12 @@ DB_NAME=yahooquery_db
 
 ### 🧱 Initial Setup (One-time)
 
-Create the PostgreSQL database, tables and schema , necessary output folders:
+Create the 1)PostgreSQL database, 2)tables and schema & 3)necessary output folders:
 
 ```bash
 python setup/create_db.py
 python setup/init_schema_tables.py
 python setup/create_dirs.py
-```
-
 ```
 
 📈 Run the ETL Pipeline
