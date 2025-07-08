@@ -9,7 +9,7 @@
 - ✅ Clean, plug-and-play ETL pipeline (3 segments: Pricing, Financials, Fundamentals)
 - 📥 Automatically scrapes S&P 500 tickers (or lets you configure your own universe)
 - 🧱 Creates and manages PostgreSQL database schema + tables
-- 🗃️ Organized output directories, archiving logic, and robust file handling
+- 🗃️ Organized output directories, archiving logic and file handling
 - ⚙️ Fully modular: update or extend segments easily
 - 🔒 Secure `.env` config (example provided)
 
