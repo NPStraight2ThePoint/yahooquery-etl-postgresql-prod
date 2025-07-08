@@ -19,7 +19,7 @@
 
 ```text
 yahooquery-etl-postgresql-prod/
-├── archive/                     # Archived CSVs for version tracking
+├── archive/                    # Archived CSVs for version tracking
 │   └── data/
 ├── archive_dir.py              # Archive logic
 ├── etl/                        # ETL scripts for each data segment
@@ -80,6 +80,7 @@ DB_NAME=yahooquery_db
 
 ### 🧱 Initial Setup (One-time)
 
+Run:
 ```bash
 python setup/create_db.py
 python setup/init_schema_tables.py
