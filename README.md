@@ -25,14 +25,14 @@ yahooquery-etl-postgresql-prod/
 ├── etl/                        # ETL scripts for each data segment
 │   ├── _1_pricing/
 │   ├── _2_financial_statements/
-│   ├── _3_fundamentals/
-│   └── merged/                 # Merged outputs
+│   └── _3_fundamentals/                   
 ├── get_sp500_tickers.py        # Auto-download S&P 500 tickers
 ├── global_orchestrator.py      # Runs all segments in order
 ├── output/                     # Fetched raw data
 │   ├── _1_pricing/
 │   ├── _2_financials/
-│   └── _3_fundamentals/
+│   ├── _3_fundamentals/
+│   └── merged                  # Merged outputs
 ├── requirements.txt
 ├── setup/                      # DB creation, schema, folder setup
 │   ├── create_db.py
