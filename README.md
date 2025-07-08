@@ -183,7 +183,7 @@ You may do so in any reasonable manner, **but not** in any way that suggests the
 
 This project uses and builds upon the following external sources, which should be credited as per their own licenses:
 
-- [`yahooquery`](https://github.com/dpguthrie/yahooquery): A Python API client to Yahoo Finance, used here for data extraction.
+- [`yahooquery`](https://github.com/dpguthrie/yahooquery): Python library for Yahoo Finance API, used here for data extraction.
 - Data sourced from **Wikipedia** for S&P 500 constituents and related metadata.
 
 Please refer to their respective licenses and terms when redistributing or modifying those components.
