@@ -1,4 +1,4 @@
-# 📊 Yahoo Finance ETL to PostgreSQL (Production-Ready)
+# 📊 Yahoo Finance ETL to PostgreSQL
 
 **Automated, scalable, and modular ETL pipeline** using [`yahooquery`](https://github.com/dpguthrie/yahooquery) to extract pricing, financial statements, and fundamental data — all stored in a **PostgreSQL database** for easy querying and analysis.
 
