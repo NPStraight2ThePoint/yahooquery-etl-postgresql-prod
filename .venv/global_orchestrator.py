@@ -1,3 +1,13 @@
+# global_orchestrator.py
+# ----------------------
+# Runs all ETL segments: pricing, financials, fundamentals
+#
+# Author: Nicholas Papadimitris
+# Created: July 2025
+# GitHub: https://github.com/NPStraight2ThePoint/yahooquery-etl-postgresql-prod
+#
+# Use this script to automate the full ETL pipeline run.
+
 import os
 import sys
 
