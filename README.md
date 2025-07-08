@@ -17,32 +17,34 @@
 
 ## 📁 Folder Structure
 
+```text
 yahooquery-etl-postgresql-prod/
-├── archive/ # Archived CSVs for version tracking
-│ └── data/
-├── archive_dir.py # Archive logic
-├── etl/ # ETL scripts for each data segment
-│ ├── _1_pricing/
-│ ├── _2_financial_statements/
-│ ├── _3_fundamentals/
-│ └── merged/ # Merged outputs
-├── get_sp500_tickers.py # Auto-download S&P 500 tickers
-├── global_orchestrator.py # Runs all segments in order
-├── output/ # Fetched raw data
-│ ├── _1_pricing/
-│ ├── _2_financials/
-│ └── _3_fundamentals/
+├── archive/                     # Archived CSVs for version tracking
+│   └── data/
+├── archive_dir.py              # Archive logic
+├── etl/                        # ETL scripts for each data segment
+│   ├── _1_pricing/
+│   ├── _2_financial_statements/
+│   ├── _3_fundamentals/
+│   └── merged/                 # Merged outputs
+├── get_sp500_tickers.py        # Auto-download S&P 500 tickers
+├── global_orchestrator.py      # Runs all segments in order
+├── output/                     # Fetched raw data
+│   ├── _1_pricing/
+│   ├── _2_financials/
+│   └── _3_fundamentals/
 ├── requirements.txt
-├── setup/ # DB creation, schema, folder setup
-│ ├── create_db.py
-│ ├── init_schema_tables.py
-│ └── create_dirs.py
-├── sql_db_schema/ # CSV schema definition files
-│ └── sql_schema.csv
-├── utils/ # Helper functions + shared paths
-├── .env.example # Template for local credentials
-├── .gitignore # Excludes sensitive files
+├── setup/                      # DB creation, schema, folder setup
+│   ├── create_db.py
+│   ├── init_schema_tables.py
+│   └── create_dirs.py
+├── sql_db_schema/              # CSV schema definition files
+│   └── sql_schema.csv
+├── utils/                      # Helper functions + shared paths
+├── .env.example                # Template for local credentials
+├── .gitignore                  # Excludes sensitive files
 └── README.md
+
 
 
 ---
