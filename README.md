@@ -44,7 +44,7 @@ yahooquery-etl-postgresql-prod/
 ├── .env.example                # Template for local credentials
 ├── .gitignore                  # Excludes sensitive files
 └── README.md
-
+```
 
 
 ---
