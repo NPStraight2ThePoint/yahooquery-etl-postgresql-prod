@@ -1,9 +1,6 @@
 from pathlib import Path
 from utils import ROOT_DIR
 
-# Define ROOT_DIR — adjust if this script is inside a subfolder, else use `.parent`
-ROOT_DIR = Path(__file__).parent.parent  # example: two levels up to repo root
-
 REQUIRED_DIRS = [
     ROOT_DIR / "output",
     ROOT_DIR / "output" / "_1_pricing" / "history",
