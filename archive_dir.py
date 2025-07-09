@@ -1,6 +1,3 @@
-from path_utils import set_repo_root
-set_repo_root()
-
 import os
 import shutil
 from datetime import datetime
