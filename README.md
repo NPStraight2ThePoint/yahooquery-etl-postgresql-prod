@@ -34,13 +34,14 @@ yahooquery-etl-postgresql-prod/
 │   ├── _3_fundamentals/
 │   └── merged                  # Merged outputs
 ├── requirements.txt
-├── setup/                      # DB creation, schema, folder setup
+├── run_setup.py                # Runs DB creation, schema/tables & folder setup
+├── setup/                     
 │   ├── create_db.py
 │   ├── init_schema_tables.py
 │   └── create_dirs.py
 ├── sql_db_schema/              # CSV schema definition files
 │   └── sql_schema.csv
-├── utils/                      # Helper functions + shared paths
+├── utils.py                    # Helper functions + shared paths
 ├── .env.example                # Template for local credentials
 ├── .gitignore                  # Excludes sensitive files
 └── README.md
@@ -82,10 +83,27 @@ DB_NAME=yahooquery_db
 
 Run:
 ```bash
-python setup/create_db.py
-python setup/init_schema_tables.py
-python setup/create_dirs.py
+python _1_run_setup.py
 ```
+### 🛠️ Get Tickers
+You have three flexible options for defining your ticker universe:
+
+🔁 Run the script to auto-fetch the S&P 500:
+
+```bash
+python get_sp500_tickers.py
+```
+✏️ Manually replace the default ticker list:
+
+Replace the existing Tickers.csv located at:
+output/Static Data/Tickers.csv
+with your own list of tickers.
+
+🧩 Customize the scraping logic:
+
+Edit the logic inside:
+get_sp500_tickers.py
+to adapt it to other universes — such as ASX 200, ETFs, or your own custom watchlist.
 
 ### 📈 Run the ETL Pipeline
 
@@ -93,7 +111,7 @@ You can either:
 
 1. Use the Global Orchestrator (recommended):
 ```bash
-python global_orchestrator.py
+python _3_global_orchestrator.py
 ```
 
 Or:
@@ -122,18 +140,6 @@ python archive_dir.py
 📁 Company fundamentals
 📁 Static profiles, summaries, and more
 ```
-
-### 🛠️ Custom Universes
-
-Want to analyze a different set of tickers beyond the S&P 500?
-
-You have two options:
-
-- 🔁 **Replace the default** `Tickers.csv` located in:  
-  `output/Static Data/Tickers.csv`
-
-- 🧩 **Customize the scraping logic** in:  
-  `get_sp500_tickers.py` — adapt it for your own universe (ASX200, ETFs, custom watchlists, etc.)
 
 ---
 
