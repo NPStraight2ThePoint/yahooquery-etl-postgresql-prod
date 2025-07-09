@@ -14,9 +14,9 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))  # assuming this scrip
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
-from setup._1_create_db.py import main as run_create_db
-from setup._2_init_schema_tables.py import main as run_schema_tables
-from setup._3_create_dirs import main as run_create_dirs
+from setup._1_create_db import create_database as run_create_db
+from setup._2_init_schema_tables import create_schema_and_tables as run_schema_tables
+from setup._3_create_dirs import create_dirs as run_create_dirs
 
 def run_step(func, name):
     print(f"\n🚀 Running: {name}")
@@ -37,3 +37,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
