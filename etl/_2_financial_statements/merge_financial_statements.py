@@ -1,6 +1,3 @@
-from path_utils import set_repo_root
-set_repo_root()
-
 import os
 import pandas as pd
 from utils import FINANCIAL_STATEMENTS_DIR, MERGED_DIR_CLEAN
