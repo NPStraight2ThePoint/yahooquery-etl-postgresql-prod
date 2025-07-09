@@ -133,10 +133,10 @@ python _4_archive_dir.py
 
 ### 🧪 Project Status & Roadmap
 
-✅ Tested on 10–500 tickers  
+✅ Tested on 10–20 Tickers.
 
 📌 **Upcoming Enhancements**:
-- Add automated testing
+- Automated testing
 - GitHub Actions for CI/CD
 - Additional Yahoo data modules
 
