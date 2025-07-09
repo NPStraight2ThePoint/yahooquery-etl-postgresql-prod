@@ -1,6 +1,3 @@
-from path_utils import set_repo_root
-set_repo_root()
-
 from yahooquery import Ticker
 import pandas as pd
 import json
