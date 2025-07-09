@@ -88,22 +88,10 @@ python _1_run_setup.py
 ### 🛠️ Get Tickers
 You have three flexible options for defining your ticker universe:
 
-🔁 Run the script to auto-fetch the S&P 500:
-
-```bash
-python get_sp500_tickers.py
-```
-✏️ Manually replace the default ticker list:
-
-Replace the existing Tickers.csv located at:
-output/Static Data/Tickers.csv
-with your own list of tickers.
-
-🧩 Customize the scraping logic:
-
-Edit the logic inside:
-get_sp500_tickers.py
-to adapt it to other universes — such as ASX 200, ETFs, or your own custom watchlist.
+1. Run the script to auto-fetch the S&P 500: python get_sp500_tickers.py
+2. Manually replace the default ticker list in output/Static Data/Tickers.csv with your own list of tickers.
+3. Edit the scraping logic inside _2_get_sp500_tickers.py
+   to adapt it to other universes — such as ASX 200, ETFs, or your own custom watchlist.
 
 ### 📈 Run the ETL Pipeline
 
