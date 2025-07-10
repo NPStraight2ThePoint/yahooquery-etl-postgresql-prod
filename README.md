@@ -128,6 +128,16 @@ python _4_archive_dir.py
 📁 Company fundamentals
 📁 Static profiles, summaries, and more
 ```
+## Visual Overview
+
+### Setup
+![Setup](https://raw.githubusercontent.com/NPStraight2ThePoint/yahooquery-etl-postgresql-prod/main/visuals/setup.png)
+
+### ETL Process
+![ETL](https://raw.githubusercontent.com/NPStraight2ThePoint/yahooquery-etl-postgresql-prod/main/visuals/ETL.png)
+
+### Database Schema
+![Database](https://raw.githubusercontent.com/NPStraight2ThePoint/yahooquery-etl-postgresql-prod/main/visuals/Database.png)
 
 ---
 
