@@ -143,7 +143,7 @@ python _4_archive_dir.py
 
 ### 🧪 Project Status & Roadmap
 
-✅ Tested on 10–20 Tickers.
+✅ Tested on 200 Tickers.
 
 📌 **Upcoming Enhancements**:
 - Automated testing
