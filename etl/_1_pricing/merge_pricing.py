@@ -8,6 +8,31 @@ from utils import (
     MERGED_DIR
 )
 
+def postprocess_technical_insights(df):
+    if 'instrumentInfo.technicalEvents.provider' in df.columns:
+        df = df[df['instrumentInfo.technicalEvents.provider'].notna()]
+    return df
+
+def postprocess_pricing_history(df):
+    df.sort_values(by=['ticker', 'date'], inplace=True)
+
+    price_cols = ['open', 'high', 'low', 'close', 'adjclose']
+
+    # Track missing OHLC rows before ffill
+    missing_ohlc_mask = df[price_cols].isna().any(axis=1)
+
+    # Forward fill price data per ticker
+    df[price_cols] = df.groupby('ticker')[price_cols].ffill()
+
+    # Set volume = 0 where price was missing
+    df.loc[missing_ohlc_mask, 'volume'] = 0
+
+    # Handle dividends and splits: keep if present, else fill 0
+    for col in ['dividends', 'splits']:
+        df[col] = df[col].fillna(0)
+
+    return df
+
 def merge_csvs(input_dir, output_dir, output_filename, force_symbol=True, add_today_date=False, file_filter=None, postprocess=None):
     os.makedirs(output_dir, exist_ok=True)
 
@@ -22,10 +47,13 @@ def merge_csvs(input_dir, output_dir, output_filename, force_symbol=True, add_to
         try:
             df = pd.read_csv(filepath)
 
+            # ✅ Drop any unnamed columns (usually extra index columns)
+            df = df.loc[:, ~df.columns.str.startswith('Unnamed')]
+
             # Insert symbol if missing
-            #if force_symbol and 'symbol' not in df.columns:
-                #symbol = file.replace('.csv', '')
-                #df.insert(0, 'symbol', symbol)
+            # if force_symbol and 'symbol' not in df.columns:
+            #     symbol = file.replace('.csv', '')
+            #     df.insert(0, 'symbol', symbol)
 
             merged_df = pd.concat([merged_df, df], ignore_index=True)
 
@@ -39,9 +67,13 @@ def merge_csvs(input_dir, output_dir, output_filename, force_symbol=True, add_to
     if postprocess:
         merged_df = postprocess(merged_df)
 
+    # ✅ Also ensure final merged_df has no lingering unnamed columns
+    merged_df = merged_df.loc[:, ~merged_df.columns.str.startswith('Unnamed')]
+
     output_path = os.path.join(output_dir, output_filename)
     merged_df.to_csv(output_path, index=False)
     print(f"✅ Merged saved to: {output_path}")
+
 
 
 def clean_reports_df(df):
@@ -65,7 +97,8 @@ def main():
         input_dir=PRICING_HISTORY_OUTPUT_DIR,
         output_dir=MERGED_DIR,
         output_filename='merged_history.csv',
-        force_symbol=True
+        force_symbol=True,
+        postprocess=postprocess_pricing_history
     )
 
     # === Technical Insights Merge (only *_technical_insights_flat.csv) ===
@@ -75,7 +108,8 @@ def main():
         output_filename='merged_technical_insights.csv',
         force_symbol=True,
         add_today_date=True,
-        file_filter='technical_insights'
+        file_filter='technical_insights',
+        postprocess=postprocess_technical_insights
     )
 
     # === Reports Merge (only *_technical_reports_flat.csv) ===
