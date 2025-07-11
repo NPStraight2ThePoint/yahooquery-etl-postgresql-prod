@@ -16,6 +16,8 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))  # assuming this scrip
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
+
+# Now import the ETL orchestrators
 from etl._1_pricing.pricing_orchestrator import main as run_pricing_etl
 from etl._2_financial_statements.financial_statements_orchestrator import main as run_financials_etl
 from etl._3_fundamentals.fundamentals_orchestrator import main as run_fundamentals_etl
