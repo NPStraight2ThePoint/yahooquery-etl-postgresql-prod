@@ -29,15 +29,15 @@ def main():
         merged_df.to_csv(merged_output_path, index=False)
         print(f"✅ Merged {len(files)} batch files for segment '{segment}' into {merged_output_path}")
 
-    # Update merged files with date and column order
+    # Update only *_merged.csv files with date and column order
     for filename in os.listdir(MERGED_DIR_CLEAN):
-        if filename.endswith('.csv'):
+        if filename.endswith('_merged.csv'):
             path = os.path.join(MERGED_DIR_CLEAN, filename)
             print(f"📄 Processing {filename} ...")
             df = pd.read_csv(path)
 
             if 'ticker' not in df.columns:
-                print(f"⚠️ No 'ticker' column in {filename}, skipping...")
+                print(f"ℹ️ Skipping {filename} (no 'ticker' column, likely not a segment file)...")
                 continue
 
             df = reorder_and_add_date(df)
