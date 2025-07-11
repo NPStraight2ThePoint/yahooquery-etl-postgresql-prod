@@ -27,7 +27,7 @@ MAIN_OUTPUT_DIR = ROOT_DIR / "output"
 ARCHIVE_DIR = ROOT_DIR / "Archive/Data"
 
 STATIC_DIR = ROOT_DIR / "output/Static Data"
-MERGED_DIR = ROOT_DIR / ".venv/output/merged"
+MERGED_DIR = ROOT_DIR / "output/merged"
 MERGED_DIR_CLEAN = (ROOT_DIR / "output/merged").resolve()
 
 # Tickers
