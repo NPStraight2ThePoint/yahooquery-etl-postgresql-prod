@@ -1,15 +1,17 @@
 import os
 import sys
 
-# Add project root to sys.path for imports
+# Ensure the root path is included
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
-# Import ETL steps
-import _1_financial_statements
-import merge_financial_statements
-import load_financial_statements
+# ✅ Use package-style imports
+from etl._2_financial_statements import (
+    _1_financial_statements,
+    merge_financial_statements,
+    load_financial_statements
+)
 
 def run_step(func, name):
     print(f"\n🚀 Running: {name}")
@@ -28,6 +30,5 @@ def main():
 
     print("\n🏁 FINANCIAL STATEMENTS ETL Complete")
 
-# Make this callable both as script or from global orchestrator
 if __name__ == '__main__':
     main()
