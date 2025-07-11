@@ -41,40 +41,43 @@ def load_csv_to_postgres(csv_path, table_name):
 
 def main():
     for filename in os.listdir(MERGED_DIR_CLEAN):
-        if filename.endswith('.csv'):
-            base = os.path.splitext(filename)[0].lower()  # e.g. balance_sheet_annual
+        if not filename.endswith('.csv'):
+            continue
 
-            parts = base.split('_')  # e.g. ['balance', 'sheet', 'annual']
-            if len(parts) >= 2:
-                statement_type = '_'.join(parts[:-1])  # e.g. 'balance_sheet'
-                frequency = parts[-1]  # e.g. 'annual'
+        base = os.path.splitext(filename)[0].lower()
 
-                # Map to correct table stub
-                statement_map = {
-                    'balance_sheet': 'bs',
-                    'income_statement': 'is',
-                    'cash_flow': 'cf'
-                }
+        # Only include files that match known statement types
+        if not any(key in base for key in filename_to_table_stub.keys()):
+            continue  # skip unknown types silently
 
-                freq_map = {
-                    'annual': 'a',
-                    'quarterly': 'q'
-                }
+        parts = base.split('_')
+        if len(parts) >= 2:
+            statement_type = '_'.join(parts[:-1])  # e.g. 'balance_sheet'
+            frequency = parts[-1]  # e.g. 'annual'
 
-                stub = statement_map.get(statement_type)
-                freq = freq_map.get(frequency)
+            statement_map = {
+                'balance_sheet': 'bs',
+                'income_statement': 'is',
+                'cash_flow': 'cf'
+            }
 
-                if stub and freq:
-                    table_name = f"yahooquery.financial_statements_{stub}_{freq}"
-                else:
-                    print(f"⚠️ Skipping unknown format: {filename}")
-                    continue
+            freq_map = {
+                'annual': 'a',
+                'quarterly': 'q'
+            }
+
+            stub = statement_map.get(statement_type)
+            freq = freq_map.get(frequency)
+
+            if stub and freq:
+                table_name = f"yahooquery.financial_statements_{stub}_{freq}"
             else:
-                # fallback if unexpected format
-                table_name = f"yahooquery.financial_statements_{base.replace('_', '')}"
+                continue  # silently skip if invalid mapping
+        else:
+            continue  # skip files with unexpected format
 
-            full_path = os.path.join(MERGED_DIR_CLEAN, filename)
-            load_csv_to_postgres(csv_path=full_path, table_name=table_name)
+        full_path = os.path.join(MERGED_DIR_CLEAN, filename)
+        load_csv_to_postgres(csv_path=full_path, table_name=table_name)
 
 if __name__ == '__main__':
     main()
