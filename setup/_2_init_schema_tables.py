@@ -1,3 +1,11 @@
+import os
+import sys
+
+# Add project root to sys.path for imports
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
 import psycopg2
 from psycopg2 import sql
 import os
@@ -1079,6 +1087,40 @@ def create_schema_and_tables():
                 );
                 """)
 
+                # Create fundamentals_valuation_data
+                cur.execute(f"""
+                                CREATE TABLE IF NOT EXISTS {schema}.fundamentals_valuation_data (
+                                ticker TEXT,
+                                date DATE,
+                                EnterpriseValue FLOAT,
+                                EnterprisesValueEBITDARatio FLOAT,
+                                EnterprisesValueRevenueRatio FLOAT,
+                                ForwardPeRatio FLOAT,
+                                MarketCap FLOAT,
+                                PbRatio FLOAT,
+                                PeRatio FLOAT,
+                                PegRatio FLOAT,
+                                PsRatio FLOAT,
+                                asOfDate DATE,
+                                periodType TEXT   
+                                );
+                                """)
+
+                # Create fundamentals_officers_data
+                cur.execute(f"""
+                               CREATE TABLE IF NOT EXISTS {schema}.fundamentals_officers_data (
+                                 date DATE,
+                                ticker TEXT,
+                                exercisedValue FLOAT,
+                                fiscalYear FLOAT,
+                                maxAge FLOAT,
+                                name TEXT,
+                                title TEXT,
+                                totalPay FLOAT,
+                                unexercisedValue FLOAT,
+                                yearBorn FLOAT
+                               );
+                               """)
 
                 print("✅ All tables created successfully.")
 
