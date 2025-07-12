@@ -78,7 +78,7 @@ DB_USER=your_username
 DB_PASSWORD=your_password
 DB_NAME=yahooquery_db
 ```
-4️⃣ Install Python Dependencies
+### 4️⃣ Install Python Dependencies
 
 We recommend using a virtual environment:
 ```bash
