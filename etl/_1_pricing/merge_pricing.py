@@ -4,14 +4,8 @@ from datetime import datetime
 from utils import (
     PRICING_HISTORY_OUTPUT_DIR,
     PRICING_OPTION_CHAIN_OUTPUT_DIR,
-    PRICING_TECHNICAL_INSIGHTS_OUTPUT_DIR,
     MERGED_DIR
 )
-
-def postprocess_technical_insights(df):
-    if 'instrumentInfo.technicalEvents.provider' in df.columns:
-        df = df[df['instrumentInfo.technicalEvents.provider'].notna()]
-    return df
 
 def postprocess_pricing_history(df):
     df.sort_values(by=['ticker', 'date'], inplace=True)
@@ -74,13 +68,10 @@ def merge_csvs(input_dir, output_dir, output_filename, force_symbol=True, add_to
     merged_df.to_csv(output_path, index=False)
     print(f"✅ Merged saved to: {output_path}")
 
-
-
 def clean_reports_df(df):
     if 'symbol' in df.columns:
         df['symbol'] = df['symbol'].str.replace('_reports', '', regex=False)
     return df
-
 
 def main():
     # === Option Chain Merge ===
@@ -100,29 +91,6 @@ def main():
         force_symbol=True,
         postprocess=postprocess_pricing_history
     )
-
-    # === Technical Insights Merge (only *_technical_insights_flat.csv) ===
-    merge_csvs(
-        input_dir=PRICING_TECHNICAL_INSIGHTS_OUTPUT_DIR,
-        output_dir=MERGED_DIR,
-        output_filename='merged_technical_insights.csv',
-        force_symbol=True,
-        add_today_date=True,
-        file_filter='technical_insights',
-        postprocess=postprocess_technical_insights
-    )
-
-    # === Reports Merge (only *_technical_reports_flat.csv) ===
-    merge_csvs(
-        input_dir=PRICING_TECHNICAL_INSIGHTS_OUTPUT_DIR,
-        output_dir=MERGED_DIR,
-        output_filename='merged_reports.csv',
-        force_symbol=True,
-        add_today_date=True,
-        file_filter='reports',
-        postprocess=clean_reports_df
-    )
-
 
 if __name__ == '__main__':
     main()
