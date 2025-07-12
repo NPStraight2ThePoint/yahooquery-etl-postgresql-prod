@@ -15,40 +15,6 @@
 
 ---
 
-## 📁 Folder Structure
-
-```text
-yahooquery-etl-postgresql-prod/
-├── archive/                    # Archived CSVs for version tracking
-│   └── data/
-├── archive_dir.py              # Archive logic
-├── etl/                        # ETL scripts for each data segment
-│   ├── _1_pricing/
-│   ├── _2_financial_statements/
-│   └── _3_fundamentals/                   
-├── get_sp500_tickers.py        # Auto-download S&P 500 tickers
-├── global_orchestrator.py      # Runs all segments in order
-├── output/                     # Fetched raw data
-│   ├── _1_pricing/
-│   ├── _2_financials/
-│   ├── _3_fundamentals/
-│   └── merged                  # Merged outputs
-├── requirements.txt
-├── run_setup.py                # Runs DB creation, schema/tables & folder setup
-├── setup/                     
-│   ├── create_db.py
-│   ├── init_schema_tables.py
-│   └── create_dirs.py
-├── sql_db_schema/              # CSV schema definition files
-│   └── sql_schema.csv
-├── utils.py                    # Helper functions + shared paths
-├── .env.example                # Template for local credentials
-├── .gitignore                  # Excludes sensitive files
-└── README.md
-```
-
----
-
 ## ⚙️ Setup Instructions
 
 ### 1️⃣ Requirements
@@ -137,6 +103,38 @@ python _4_archive_dir.py
 📁 Static profiles, summaries, and more
 ```
 ## Visual Overview
+
+## 📁 Folder Structure
+
+```text
+yahooquery-etl-postgresql-prod/
+├── archive/                    # Archived CSVs for version tracking
+│   └── data/
+├── archive_dir.py              # Archive logic
+├── etl/                        # ETL scripts for each data segment
+│   ├── _1_pricing/
+│   ├── _2_financial_statements/
+│   └── _3_fundamentals/                   
+├── get_sp500_tickers.py        # Auto-download S&P 500 tickers
+├── global_orchestrator.py      # Runs all segments in order
+├── output/                     # Fetched raw data
+│   ├── _1_pricing/
+│   ├── _2_financials/
+│   ├── _3_fundamentals/
+│   └── merged                  # Merged outputs
+├── requirements.txt
+├── run_setup.py                # Runs DB creation, schema/tables & folder setup
+├── setup/                     
+│   ├── create_db.py
+│   ├── init_schema_tables.py
+│   └── create_dirs.py
+├── sql_db_schema/              # CSV schema definition files
+│   └── sql_schema.csv
+├── utils.py                    # Helper functions + shared paths
+├── .env.example                # Template for local credentials
+├── .gitignore                  # Excludes sensitive files
+└── README.md
+```
 
 ### Setup
 ![Setup](https://raw.githubusercontent.com/NPStraight2ThePoint/yahooquery-etl-postgresql-prod/main/visuals/setup.png)
