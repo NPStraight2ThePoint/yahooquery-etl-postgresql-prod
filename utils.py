@@ -1,4 +1,12 @@
 import os
+import sys
+
+# Add project root to sys.path so you can import all ETL folder orchestrators
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))  # assuming this script is at /etl/
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+import os
 from pathlib import Path
 from datetime import date
 from dotenv import load_dotenv
@@ -58,10 +66,12 @@ FINANCIAL_STATEMENTS_OUTPUT_DIRS = {
 # Fundamentals
 FUNDAMENTALS_OUTPUT_DIR = ROOT_DIR / "output" / "_3_fundamentals" / "Batches"
 FUNDAMENTALS_FINANCIAL_DATA = MERGED_DIR_CLEAN / 'fin_merged.csv'
-FUNDAMENTALS_KEY_STATS= MERGED_DIR_CLEAN / 'keystats_merged.csv'
+FUNDAMENTALS_KEY_STATS = MERGED_DIR_CLEAN / 'keystats_merged.csv'
 FUNDAMENTALS_PRICE_DATA = MERGED_DIR_CLEAN / 'price_merged.csv'
-FUNDAMENTALS_PROFILE_DATA= MERGED_DIR_CLEAN / 'profile_merged.csv'
-FUNDAMENTALS_SUMMARY_DATA= MERGED_DIR_CLEAN / 'summary_merged.csv'
+FUNDAMENTALS_PROFILE_DATA = MERGED_DIR_CLEAN / 'profile_merged.csv'
+FUNDAMENTALS_SUMMARY_DATA = MERGED_DIR_CLEAN / 'summary_merged.csv'
+FUNDAMENTALS_VALUATION = MERGED_DIR_CLEAN / 'valuation_merged.csv'
+FUNDAMENTALS_OFFICERS = MERGED_DIR_CLEAN / 'officers_merged.csv'
 
 # Table Names
 PRICING_HISTORY_TABLE_NAME = 'yahooquery.pricing_history'
@@ -69,10 +79,13 @@ OPTION_CHAIN_TABLE_NAME = 'yahooquery.pricing_option_chain'
 PRICING_TECHNICAL_INSIGHTS_TABLE_NAME = 'yahooquery.pricing_technical_insights'
 PRICING_TECHNICAL_REPORTS_TABLE_NAME = 'yahooquery.pricing_technical_reports'
 FUNDAMENTALS_FINANCIAL_DATA_TABLE_NAME = 'yahooquery.fundamentals_financial_data'
-FUNDAMENTALS_KEY_STATS_TABLE_NAME= 'yahooquery.fundamentals_key_stats'
+FUNDAMENTALS_KEY_STATS_TABLE_NAME = 'yahooquery.fundamentals_key_stats'
 FUNDAMENTALS_PRICE_DATA_TABLE_NAME = 'yahooquery.fundamentals_price_data'
 FUNDAMENTALS_PROFILE_DATA_TABLE_NAME = 'yahooquery.fundamentals_profile_data'
 FUNDAMENTALS_SUMMARY_DATA_TABLE_NAME = 'yahooquery.fundamentals_summary_data'
+FUNDAMENTALS_VALUATION_TABLE_NAME = 'yahooquery.fundamentals_valuation_data'
+FUNDAMENTALS_OFFICERS_TABLE_NAME = 'yahooquery.fundamentals_officers_data'
+
 
 # DB Credentials from .env
 DB_PARAMS = {
