@@ -6,7 +6,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
-from etl._1_pricing import _1_history, _2_option_chain, _3_technical_insights, merge_pricing, load_pricing
+from etl._1_pricing import _1_history, _2_option_chain, merge_pricing, load_pricing
 
 def run_step(func, name):
     print(f"\n🚀 Running: {name}")
@@ -21,7 +21,6 @@ def main():
 
     run_step(_1_history.main, '1_history.py')
     run_step(_2_option_chain.main, '2_option_chain.py')
-    run_step(_3_technical_insights.main, '3_technical_insights.py')
     run_step(merge_pricing.main, 'merge_pricing.py')
     run_step(load_pricing.main, 'load_pricing.py')
 
