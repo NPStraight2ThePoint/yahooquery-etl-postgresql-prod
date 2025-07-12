@@ -21,6 +21,7 @@ if PROJECT_ROOT not in sys.path:
 from etl._1_pricing.pricing_orchestrator import main as run_pricing_etl
 from etl._2_financial_statements.financial_statements_orchestrator import main as run_financials_etl
 from etl._3_fundamentals.fundamentals_orchestrator import main as run_fundamentals_etl
+from etl._4_technicals.technicals_orchestrator import main as run_technicals_etl
 
 def run_step(func, name):
     print(f"\n🚀 Running: {name}")
@@ -36,7 +37,7 @@ def main():
     run_step(run_pricing_etl, "Pricing ETL")
     run_step(run_financials_etl, "Financial Statements ETL")
     run_step(run_fundamentals_etl, "Fundamentals ETL")
-
+    run_step(run_technicals_etl, "Technicals ETL")
     print("\n🏁 GLOBAL ETL Orchestration Complete")
 
 if __name__ == '__main__':
