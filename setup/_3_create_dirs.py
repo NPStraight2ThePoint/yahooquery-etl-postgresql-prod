@@ -15,6 +15,7 @@ REQUIRED_DIRS = [
     ROOT_DIR / "output" / "_2_financial_statements" / "Income Statement" / "Quarterly",
     ROOT_DIR / "output" / "_3_fundamentals",
     ROOT_DIR / "output" / "_3_fundamentals" / "Batches",
+    ROOT_DIR / "output" / "_4_technicals" / "technical_insights",
     ROOT_DIR / "output" / "Static Data",
     ROOT_DIR / "Archive",
     ROOT_DIR / "Archive" / "data",
