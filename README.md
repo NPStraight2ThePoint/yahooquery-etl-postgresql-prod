@@ -78,6 +78,14 @@ DB_USER=your_username
 DB_PASSWORD=your_password
 DB_NAME=yahooquery_db
 ```
+4️⃣ Install Python Dependencies
+
+We recommend using a virtual environment:
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
 
 ### 🧱 Initial Setup (One-time)
 
