@@ -6,7 +6,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
-from etl._3_fundamentals import _1_fundamentals, merge_fundamentals, load_fundamentals
+from etl._3_fundamentals import _1_fundamentals, _2_valuations, _3_officers, merge_fundamentals, load_fundamentals
 
 def run_step(func, name):
     print(f"\n🚀 Running: {name}")
@@ -20,6 +20,8 @@ def main():
     print("🔁 Starting FUNDAMENTALS ETL")
 
     run_step(_1_fundamentals.main, '1_fundamentals.py')
+    run_step(_2_valuations.main, '2_valuations.py')
+    run_step(_3_officers.main, '3_officers.py')
     run_step(merge_fundamentals.main, 'merge_fundamentals.py')
     run_step(load_fundamentals.main, 'load_fundamentals.py')
 
